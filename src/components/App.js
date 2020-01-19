@@ -1,11 +1,22 @@
 import React, { Component } from 'react';
-// import LinkList from './LinkList';
+import LinkList from './LinkList';
 import CreateLink from './CreateLink';
+import Header from './Header';
+import { Switch, Route } from 'react-router-dom';
 
 class App extends Component {
   render() {
-    // return <LinkList />;
-    return <CreateLink />;
+    return (
+      <div className="mx-auto w-5/6">
+        <Header />
+        <div className="px-4 py-1 bg-gray-100">
+          <Switch>
+            <Route exact path="/" component={LinkList} />
+            <Route exact path="/create" component={CreateLink} />
+          </Switch>
+        </div>
+      </div>
+    );
   }
 }
 
