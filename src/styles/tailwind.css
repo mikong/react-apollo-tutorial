@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn {
+  @apply font-thin py-1 px-2 rounded border;
+}
+
+.btn-gray {
+  @apply bg-transparent text-gray-700 border-gray-500;
+}
