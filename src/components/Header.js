@@ -6,8 +6,8 @@ class Header extends Component {
   render() {
     return (
       <div className="flex p-1 justify-between whitespace-no-wrap bg-orange-500">
-        <div className="flex bg-black">
-          <div className="font-bold mr-1">Hacker News</div>
+        <div className="flex text-black">
+          <div className="font-extrabold mr-1">Hacker News</div>
           <Link to="/" className="ml-1 no-underline text-black">
             new
           </Link>
