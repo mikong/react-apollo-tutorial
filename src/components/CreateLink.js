@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Mutation } from 'react-apollo';
 import gql from 'graphql-tag';
+import { FEED_QUERY } from './LinkList';
 
 const CREATE_LINK = gql`
   mutation CreateLink($url: String!, $description: String) {
@@ -38,7 +39,19 @@ class CreateLink extends Component {
             placeholder="The URL for the link"
           />
         </div>
-        <Mutation mutation={CREATE_LINK} variables={{ url, description }}>
+        <Mutation
+          mutation={CREATE_LINK}
+          variables={{ url, description }}
+          onCompleted={() => this.props.history.push('/')}
+          update={(store, { data: { createLink } }) => {
+            const data = store.readQuery({ query: FEED_QUERY });
+            data.allLinks.unshift(createLink);
+            store.writeQuery({
+              query: FEED_QUERY,
+              data
+            });
+          }}
+        >
           {createLink => <button onClick={createLink}>Create Link</button>}
         </Mutation>
       </div>
