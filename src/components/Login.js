@@ -53,6 +53,7 @@ class Login extends Component {
         <div className="flex flex-col">
           {!login && (
             <input
+              className="mb-2 input"
               value={name}
               onChange={e => this.setState({ name: e.target.value })}
               type="text"
@@ -60,19 +61,21 @@ class Login extends Component {
             />
           )}
           <input
+            className="mb-2 input"
             value={email}
             onChange={e => this.setState({ email: e.target.value })}
             type="text"
             placeholder="Your email address"
           />
           <input
+            className="mb-2 input"
             value={password}
             onChange={e => this.setState({ password: e.target.value })}
             type="password"
             placeholder="Choose a safe password"
           />
         </div>
-        <div className="flex mt-4">
+        <div className="flex">
           {login ? (
             <Mutation
               mutation={LOGIN_MUTATION}

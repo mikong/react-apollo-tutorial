@@ -9,3 +9,7 @@
 .btn-gray {
   @apply bg-transparent text-gray-700 border-gray-500;
 }
+
+.input {
+  @apply border rounded py-1 px-3;
+}

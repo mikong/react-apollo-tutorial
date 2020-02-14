@@ -25,14 +25,14 @@ class CreateLink extends Component {
       <div>
         <div className="flex flex-col mt-4">
           <input
-            className="mb-2"
+            className="mb-2 input"
             value={description}
             onChange={e => this.setState({ description: e.target.value })}
             type="text"
             placeholder="A description for the link"
           />
           <input
-            className="mb-2"
+            className="mb-2 input"
             value={url}
             onChange={e => this.setState({ url: e.target.value })}
             type="text"
@@ -52,7 +52,14 @@ class CreateLink extends Component {
             });
           }}
         >
-          {createLink => <button onClick={createLink}>Create Link</button>}
+          {createLink =>
+            <button
+              className="btn btn-gray"
+              onClick={createLink}
+            >
+              Create Link
+            </button>
+          }
         </Mutation>
       </div>
     );
